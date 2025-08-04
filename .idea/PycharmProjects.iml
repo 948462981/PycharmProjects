@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/爬虫/chapter2/img" />
+      <excludeFolder url="file://$MODULE_DIR$/爬虫/chapter2/img2" />
     </content>
     <orderEntry type="jdk" jdkName="PycharmProjects" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
