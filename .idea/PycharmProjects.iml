@@ -2,10 +2,11 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/爬虫/chapter2/img" />
-      <excludeFolder url="file://$MODULE_DIR$/爬虫/chapter2/img2" />
+      <excludeFolder url="file://$MODULE_DIR$/爬虫/chapter2-Re+Bs4+Xpath/img" />
+      <excludeFolder url="file://$MODULE_DIR$/爬虫/chapter2-Re+Bs4+Xpath/img2" />
+      <excludeFolder url="file://$MODULE_DIR$/爬虫/chapter4-Coroutine/小说" />
     </content>
-    <orderEntry type="jdk" jdkName="PycharmProjects" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.11" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
