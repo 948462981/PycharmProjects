@@ -16,7 +16,6 @@ page = BeautifulSoup(resp.text, "html.parser")
 # find 和 find_all
 with open("books.csv", "w", encoding="utf-8", newline="") as f:
     writer = csv.writer(f)
-
     # 可选：写入表头
     writer.writerow(["分类1", "书名1", "作者1", "分类2", "书名2", "作者2"])
 
