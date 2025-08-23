@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 使用本地Bootstrap CSS文件 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.4.6.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block head %}{% endblock %}
+    <title>{% block title %}OA管理系统{% endblock %}</title>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+<!-- 重构导航栏以使用Bootstrap组件 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">OA管理系统</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="d-flex align-items-center mr-auto">
+            <!-- 左边导航菜单 -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('qa.publish_question') }}">发布问答</a>
+                </li>
+            </ul>
+
+            <!-- 搜索表单（紧跟在菜单右边） -->
+            <form class="form-inline ml-3 d-none d-lg-block" action="{{ url_for('qa.search') }}" method="GET">
+                <div class="input-group">
+                    <input class="form-control"
+                           type="search"
+                           name="q"
+                           placeholder="搜索问题..."
+                           aria-label="Search"
+                           value="{{ request.args.get('q', '') }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-light" type="submit">搜索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- 移动端搜索表单 -->
+        <form class="form-inline w-100 mt-2 d-lg-none" action="{{ url_for('qa.search') }}" method="GET">
+            <div class="input-group w-100">
+                <input class="form-control"
+                       type="search"
+                       name="q"
+                       placeholder="搜索问题..."
+                       aria-label="Search"
+                       value="{{ request.args.get('q', '') }}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-light" type="submit">搜索</button>
+                </div>
+            </div>
+        </form>
+
+        <ul class="navbar-nav">
+            {% if g.user %}
+            <li class="nav-item">
+                <span class="nav-link">{{ g.user.username }}</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.logout') }}">退出登录</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.login') }}">登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.register') }}">注册</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<!-- 添加适当的顶部间距以适应固定导航栏 -->
+<div class="container main-content">
+    <!-- 显示 Flash 消息 -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% if not loop.last %}<br>{% endif %}
+        {% endfor %}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- 显示搜索结果提示 -->
+    {% if request.endpoint == 'qa.search' and request.args.get('q') %}
+    <div class="alert alert-secondary mt-3">
+        <strong>搜索结果：</strong> "{{ request.args.get('q') }}"
+        {% if questions is defined %}
+        - 找到 {{ questions|length }} 个结果
+        {% endif %}
+        <a href="{{ url_for('qa.index') }}" class="btn btn-sm btn-outline-secondary ml-2">返回首页</a>
+    </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

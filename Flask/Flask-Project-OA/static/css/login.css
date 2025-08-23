@@ -1,0 +1,72 @@
+/* 登录页面特定样式 */
+.login-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember-me input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    align-items: center;
+}
+
+.forgot-password {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/*#label_remember_me {*/
+/*    display: block;*/
+/*    color: #555;*/
+/*    font-weight: 500;*/
+/*}*/
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 20px;
+        padding: 20px;
+        max-width: none;
+    }
+
+    .remember-forgot {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .remember-me {
+        justify-content: flex-start;
+    }
+
+    .forgot-password {
+        text-align: center;
+    }
+}

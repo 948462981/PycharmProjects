@@ -1,0 +1,179 @@
+/* 问答容器 */
+.qa-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* 问题列表 */
+.question-list {
+    padding: 0;
+}
+
+.question-item {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.question-item:last-child {
+    border-bottom: none;
+}
+
+/* 头像区域 */
+.question-avatar {
+    flex-shrink: 0;
+}
+
+.question-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #e5f4ff;
+}
+
+/* 问题内容区域 */
+.question-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.question-title {
+    margin-bottom: 8px;
+}
+
+.title-link {
+    color: #1d2129;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    display: block;
+}
+
+.title-link:hover {
+    color: #1890ff;
+    text-decoration: none;
+}
+
+.question-description {
+    color: #8590a6;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.question-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #8590a6;
+}
+
+.question-meta .author {
+    color: #1d2129;
+    font-weight: 400;
+}
+
+.question-meta .separator {
+    color: #c9cdd4;
+    font-size: 18px;
+}
+
+.question-meta .time {
+    color: #8590a6;
+}
+
+/* 统计区域 */
+.question-stats {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #f7f8fa;
+    border-radius: 8px;
+    min-width: 60px;
+}
+
+.stat-number {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d2129;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #8590a6;
+    margin-top: 2px;
+}
+
+/* 无问题状态 */
+.no-questions {
+    text-align: center;
+    padding: 60px 20px;
+    color: #8590a6;
+    font-size: 16px;
+}
+
+.no-questions a {
+    color: #1890ff;
+    text-decoration: none;
+}
+
+.no-questions a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .qa-container {
+        padding: 15px;
+    }
+
+    .question-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .question-avatar {
+        align-self: flex-start;
+    }
+
+    .question-stats {
+        align-self: flex-end;
+    }
+
+    .title-link {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .question-item {
+        padding: 15px 0;
+    }
+
+    .title-link {
+        font-size: 15px;
+    }
+
+    .question-description {
+        font-size: 13px;
+    }
+}

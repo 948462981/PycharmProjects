@@ -1,0 +1,378 @@
+/* 问题详情容器 */
+.question-detail-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    border: 1px solid #f0f0f0;
+}
+
+/* 问题标题 */
+.question-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+/* 问题元信息 */
+.question-meta {
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 30px;
+    padding: 15px 0;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.question-meta .author {
+    color: #007bff;
+    font-weight: 500;
+    margin-right: 20px;
+}
+
+.question-meta .time {
+    color: #6c757d;
+}
+
+/* 问题内容 */
+.question-content {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #2c3e50;
+    padding: 25px 0;
+    white-space: pre-line;
+    word-wrap: break-word;
+    background-color: #fafbfc;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    margin-top: 20px;
+}
+
+/* 回答区域 */
+.answer-section {
+    margin-top: 40px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+}
+
+.answer-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+    display: flex;
+    align-items: center;
+}
+
+.answer-header::before {
+    content: "💬";
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* 回答表单 */
+.answer-form {
+    margin-bottom: 35px;
+    padding: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.answer-input {
+    width: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 100px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.answer-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+}
+
+.answer-input::placeholder {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.answer-submit {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.submit-btn {
+    padding: 12px 35px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(238, 90, 36, 0.4);
+    background: linear-gradient(135deg, #ff5252, #d84315);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* 回答列表 */
+.answer-list {
+    margin-top: 30px;
+}
+
+.answer-item {
+    display: flex;
+    padding: 25px;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f1f3f4;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.answer-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.answer-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: #e3f2fd;
+}
+
+.answer-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 回答头像 */
+.answer-avatar {
+    margin-right: 20px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.answer-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.answer-avatar:hover img {
+    transform: scale(1.1);
+}
+
+/* 回答内容 */
+.answer-content {
+    flex: 1;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.answer-header-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.answer-author {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 4px 12px;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.answer-author:hover {
+    background: rgba(0, 123, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.answer-time {
+    color: #868e96;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.answer-time::before {
+    content: "🕒";
+    font-size: 12px;
+}
+
+.answer-text {
+    color: #2c3e50;
+    font-size: 16px;
+    line-height: 1.6;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 15px 0;
+    border-radius: 8px;
+    text-align: left;
+}
+
+/* 无回答状态 */
+.no-answers {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 12px;
+    color: white;
+    margin-top: 20px;
+}
+
+.no-answers p {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.no-answers::before {
+    content: "🤔";
+    display: block;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+/* Flash消息样式 */
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #17a2b8, #138496);
+    color: white;
+    border-left: 4px solid #0c5460;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .question-detail-container,
+    .answer-section {
+        padding: 20px;
+        margin: 15px 0;
+    }
+
+    .question-title {
+        font-size: 26px;
+    }
+
+    .question-content {
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    .answer-form {
+        padding: 20px;
+    }
+
+    .answer-item {
+        padding: 20px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .answer-avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+        align-self: flex-start;
+    }
+
+    .answer-content {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .answer-header-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .question-title {
+        font-size: 22px;
+    }
+
+    .question-meta {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .answer-header {
+        font-size: 20px;
+    }
+
+    .answer-input {
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+
+    .no-answers {
+        padding: 40px 15px;
+    }
+}

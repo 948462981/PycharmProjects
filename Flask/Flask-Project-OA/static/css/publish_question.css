@@ -1,0 +1,237 @@
+/* 发布问答页面样式 */
+.publish-container {
+    max-width: 800px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+}
+
+.publish-title {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.publish-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* 标题输入框样式 */
+.title-input {
+    border: 2px solid #e8e8e8;
+    border-radius: 6px;
+    padding: 15px 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.title-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    background: #fff;
+}
+
+.title-input::placeholder {
+    color: #999;
+    font-size: 15px;
+}
+
+/* 内容输入区域样式 */
+.content-input-wrapper {
+    position: relative;
+    background: #fafafa;
+    border: 2px solid #e8e8e8;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.content-input-wrapper:focus-within {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    background: #fff;
+}
+
+.content-input {
+    border: none;
+    background: transparent;
+    resize: vertical;
+    min-height: 300px;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.content-input:focus {
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+.content-input::placeholder {
+    color: #999;
+    font-size: 15px;
+}
+
+/* 编辑器工具栏样式 */
+.editor-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #e8e8e8;
+    background: rgba(248, 249, 250, 0.8);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.toolbar-btn {
+    background: none;
+    border: 1px solid transparent;
+    padding: 8px 12px;
+    margin-right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #666;
+}
+
+.toolbar-btn:hover {
+    background: #e9ecef;
+    border-color: #ddd;
+    color: #333;
+}
+
+.toolbar-btn:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.toolbar-icon {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 发布按钮样式 */
+.form-actions {
+    text-align: right;
+    padding-top: 20px;
+}
+
+.publish-btn {
+    background: #007bff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.publish-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.publish-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.publish-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .publish-container {
+        margin: 70px auto 20px;
+        padding: 0 15px;
+    }
+
+    .publish-form {
+        padding: 20px;
+    }
+
+    .publish-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .title-input,
+    .content-input {
+        padding: 12px 15px;
+    }
+
+    .content-input {
+        min-height: 250px;
+    }
+
+    .editor-toolbar {
+        padding: 8px 15px;
+        flex-wrap: wrap;
+    }
+
+    .toolbar-btn {
+        padding: 6px 10px;
+        margin: 2px;
+    }
+
+    .form-actions {
+        text-align: center;
+    }
+
+    .publish-btn {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.publish-container {
+    animation: fadeIn 0.6s ease;
+}
+
+/* 输入框聚焦动画 */
+.title-input,
+.content-input-wrapper {
+    position: relative;
+}
+
+.title-input:focus,
+.content-input-wrapper:focus-within {
+    transform: translateY(-1px);
+}
+
+/* 表单验证样式 */
+.form-control:invalid {
+    border-color: #dc3545;
+}
+
+.form-control:invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}

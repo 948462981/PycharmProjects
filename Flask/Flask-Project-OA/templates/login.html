@@ -10,7 +10,7 @@
 <div class="login-container">
     <h2>用户登录</h2>
 
-    <form method="POST" action="/auth/login">
+    <form method="POST">
         <div class="form-group">
             <label for="email">邮箱地址</label>
             <input type="email" id="email" name="email" placeholder="请输入邮箱地址" required>
@@ -24,7 +24,7 @@
         <div class="remember-forgot">
             <div class="remember-me">
                 <input type="checkbox" id="remember" name="remember">
-                <label for="remember">记住我</label>
+                <label for="remember" class="remember-label">记住我</label>
             </div>
             <a href="#" class="forgot-password">忘记密码？</a>
         </div>

@@ -1,0 +1,289 @@
+/* 导航栏样式 */
+.navbar {
+    background-color: #007bff !important;
+    padding: 8px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    min-height: 60px; /* 确保导航栏有固定高度 */
+}
+
+.navbar-collapse {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-search-container {
+    position: static;     /* 取消绝对定位 */
+    transform: none;      /* 取消水平居中 */
+    margin-left: 15px;    /* 给点左边距（可调节） */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white !important;
+    line-height: 1.2; /* 统一行高 */
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    line-height: 1.2; /* 统一行高 */
+    padding: 8px 15px !important; /* 统一垂直内边距 */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d4edff !important;
+}
+
+/* 搜索表单样式优化 - 确保垂直对齐 */
+.form-inline {
+    display: flex;
+    align-items: center; /* 垂直居中对齐 */
+    margin: 0;
+    padding: 0;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    width: 280px; /* 固定宽度 */
+}
+
+.input-group .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    height: 38px; /* 固定高度确保对齐 */
+    font-size: 14px;
+}
+
+.input-group-append .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 38px; /* 与输入框同高 */
+    padding: 0 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-light {
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: #007bff;
+}
+
+/* 页面主体样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* 主要内容区域样式 - 为所有页面提供合适的顶部间距 */
+.main-content {
+    margin-top: 100px; /* 增加顶部边距，给导航栏留出更多空间 */
+    padding-top: 20px;  /* 额外的内边距，让内容不会太靠近 */
+    min-height: calc(100vh - 120px); /* 确保内容区域有足够高度 */
+}
+
+/* 注册页面容器样式 */
+.register-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto; /* 减少顶部边距，因为main-content已经有了 */
+    position: relative;
+}
+
+/* 标题样式 */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* 表单组样式 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* 标签样式 */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.remember-label {
+    display: block !important;
+    color: #555 !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+}
+
+/* 输入框样式 */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* 验证码容器样式 - 改进版本 */
+.captcha-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.captcha-container input[type="text"] {
+    flex: 1;
+    margin-right: 0;
+}
+
+.captcha-container .btn {
+    width: auto;
+    min-width: 100px;
+    padding: 12px 16px;
+    background-color: #6c757d;
+    font-size: 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.captcha-container .btn:hover {
+    background-color: #545b62;
+}
+
+.captcha-container .btn:disabled {
+    background-color: #6c757d;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* 按钮样式 */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* 登录链接样式 */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-search-container {
+        position: static;
+        transform: none;
+        margin: 10px 0;
+        text-align: left;
+    }
+
+    .input-group {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .navbar-collapse {
+        flex-direction: column;
+    }
+
+    .register-container {
+        margin: 20px;
+        padding: 20px;
+        max-width: none;
+    }
+
+    .main-content {
+        margin-top: 80px; /* 移动端稍微减少顶部边距 */
+        padding-top: 15px;
+    }
+
+    /* 验证码容器响应式样式 */
+    .captcha-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .captcha-container input[type="text"] {
+        width: 100%;
+    }
+
+    .captcha-container .btn {
+        width: 100%;
+    }
+}

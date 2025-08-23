@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}发布问答 - OA管理系统{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/publish_question.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="publish-container">
+    <h1 class="publish-title">发布问答</h1>
+
+    <form class="publish-form" method="POST" action="/publish">
+        <div class="form-group">
+            <input type="text"
+                   class="form-control title-input"
+                   name="title"
+                   placeholder="请输入标题"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <div class="content-input-wrapper">
+                <textarea class="form-control content-input"
+                          name="content"
+                          placeholder="请输入内容"
+                          rows="12"
+                          required></textarea>
+                <div class="editor-toolbar">
+                    <button type="button" class="toolbar-btn" title="加粗">
+                        <span class="toolbar-icon">B</span>
+                    </button>
+                    <button type="button" class="toolbar-btn" title="斜体">
+                        <span class="toolbar-icon">I</span>
+                    </button>
+                    <button type="button" class="toolbar-btn" title="插入链接">
+                        <span class="toolbar-icon">🔗</span>
+                    </button>
+                    <button type="button" class="toolbar-btn" title="插入图片">
+                        <span class="toolbar-icon">📷</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary publish-btn">发布</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

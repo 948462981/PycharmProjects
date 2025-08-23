@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}首页 - OA管理系统{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="qa-container">
+    <!-- 问题列表 -->
+    <div class="question-list">
+        {% if questions %}
+            {% for question in questions %}
+            <div class="question-item">
+                <div class="question-avatar">
+                    <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="">
+                </div>
+                <div class="question-content">
+                    <div class="question-title">
+                        <a href="{{url_for('qa.qa_detail', qa_id=question.id)}}" class="title-link">{{ question.title }}</a>
+                    </div>
+                    <div class="question-description">
+                        {{ question.content[:100] }}{% if question.content|length > 100 %}...{% endif %}
+                    </div>
+                    <div class="question-meta">
+                        <span class="author">{{ question.author.username }}</span>
+                        <span class="separator">·</span>
+                        <span class="time">{{ question.create_time.strftime('%Y年%m月%d日') }}</span>
+                    </div>
+                </div>
+                <div class="question-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">{{ question.answers|length }}</span>
+                        <span class="stat-label">回答</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-questions">
+                <p>暂无问题，<a href="{{ url_for('qa.publish_question') }}">发布第一个问题</a>吧！</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,10 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}{{ question.title }} - OA管理系统{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <!-- 显示 Flash 消息 -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-info">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- 问题详情 -->
+        <div class="question-detail-container">
+            <!-- 问题标题 -->
+            <h1 class="question-title">{{ question.title }}</h1>
+
+            <!-- 问题元信息 -->
+            <div class="question-meta">
+                <span class="author">作者：{{ question.author.username }}</span>
+                <span class="time">时间：{{ question.create_time.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+            </div>
+
+            <!-- 问题内容 -->
+            <div class="question-content">
+                {{ question.content }}
+            </div>
+        </div>
+
+        <!-- 回答区域 -->
+        <div class="answer-section">
+            <h3 class="answer-header">
+                回答 ({{ answers|length if answers else 0 }})：
+            </h3>
+
+            <!-- 回答输入框 -->
+            <div class="answer-form">
+                <form action="{{ url_for('qa.publish_answer') }}" method="POST">
+                    <!-- 隐藏字段传递问题ID -->
+                    <input type="hidden" name="question_id" value="{{ question.id }}">
+
+                    <textarea class="form-control answer-input"
+                              name="content"
+                              placeholder="请填写回答"
+                              rows="3"
+                              required></textarea>
+                    <div class="answer-submit">
+                        <button type="submit" class="btn btn-primary submit-btn">回答</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 回答列表 -->
+            <div class="answer-list">
+                {% if answers %}
+                    {% for answer in answers %}
+                    <div class="answer-item">
+                        <div class="answer-avatar">
+                            <img src="{{ url_for('static', filename='images/avatar.jpg') }}"
+                                 alt="头像"
+                                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNFNUY0RkYiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI4IiB5PSI4Ij4KPGF0aCBkPSJNMTIgMTJDMTQuMjA5MSAxMiAxNiAxMC4yMDkxIDE2IDhDMTYgNS43OTA4NiAxNC4yMDkxIDQgMTIgNEM5Ljc5MDg2IDQgOCA1Ljc5MDg2IDggOEM4IDEwLjIwOTEgOS43OTA4NiAxMiAxMiAxMloiIGZpbGw9IiM2OTc2ODYiLz4KPHBhdGggZD0iTTEyIDE0QzkuMzM0NTEgMTQgNy4wMDEgMTMuNjY1NSA0LjY0NzA2IDE2LjI2QzMuMzQzMTkgMTcuNzMwOSA0LjE3MzUzIDIwIDYuMTkzNjEgMjBIMTcuODA2NEMxOS44MjY1IDIwIDIwLjY1NjggMTcuNzMwOSAxOS4zNTI5IDE2LjI2QzE2Ljk5OSAxMy42NjU1IDE0LjY2NTUgMTQgMTIgMTRaIiBmaWxsPSIjNjk3Njg2Ii8+CjwvZz4KPC9zdmc+'">
+                        </div>
+                        <div class="answer-content">
+                            <div class="answer-header-info">
+                                <span class="answer-author">{{ answer.author.username }}</span>
+                                <span class="answer-time">{{ answer.create_time.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                            </div>
+                            <div class="answer-text">
+                                {{ answer.content }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="no-answers">
+                        <p>暂无回答，快来发表第一个回答吧！</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>
+{% endblock %}
