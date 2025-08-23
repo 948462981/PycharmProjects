@@ -10,7 +10,7 @@ app = Flask(__name__)
 HOSTNAME = "127.0.0.1"  # 或者尝试 "localhost"
 PORT = 3306
 USERNAME = "root"
-PASSWORD = "linzhong123"  # 替换为实际密码
+PASSWORD = ""  # 替换为实际密码
 DATABASE = "learn"  # 先用默认的 test 数据库
 
 # 重要：确保连接字符串格式正确
