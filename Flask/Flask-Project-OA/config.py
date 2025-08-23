@@ -6,7 +6,7 @@ SECRET_KEY = "dsmnfdsmwemkrdsmvkllcfdjkhgk"
 HOSTNAME = "127.0.0.1"  # 或者尝试 "localhost"
 PORT = 3306
 USERNAME = "root"
-PASSWORD = "linzhong123"  # 替换为实际密码
+PASSWORD = ""  # 替换为实际密码
 DATABASE = "OA_learn"
 
 DB_URI = 'mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8mb4'.format(USERNAME, PASSWORD, HOSTNAME, PORT, DATABASE)
@@ -22,8 +22,8 @@ MAIL_SERVER = "smtp.googlemail.com"
 MAIL_PORT = 587
 MAIL_USE_TLS = True
 MAIL_USE_SSL = False
-MAIL_USERNAME = "948462981qq@gmail.com"
-MAIL_PASSWORD = "wyxfugcbhwxwndsb"
-MAIL_DEFAULT_SENDER = "948462981qq@gmail.com"
-# wyxf ugcb hwxw ndsb
+MAIL_USERNAME = ""
+MAIL_PASSWORD = ""
+MAIL_DEFAULT_SENDER = ""
+#
 

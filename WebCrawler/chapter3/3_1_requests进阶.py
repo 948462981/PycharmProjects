@@ -5,7 +5,7 @@ import requests
 # session =requests.session()
 # data ={
 #     "loginName":"1861407597",
-#     "password":"q6035945"
+#     "password":""
 # }
 # # 1.登录
 # url = "https://passport.17k.com/ck/user/login"
