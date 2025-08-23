@@ -25,7 +25,7 @@ for block in block:
 
 
 # for r in rating:
-#     rate = soup.find_all("div", attrs = {"class": "RatingValues__RatingContainer-sc-6dc747-爬虫 dnVGEm"})
+#     rate = soup.find_all("div", attrs = {"class": "RatingValues__RatingContainer-sc-6dc747-WebCrawler dnVGEm"})
 #     print(rate[0].string)
 
 # for title in all_titles:

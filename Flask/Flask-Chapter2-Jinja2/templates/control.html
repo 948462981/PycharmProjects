@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制语句</title>
+</head>
+<body>
+    <div>
+        {% if user3.age > 18 %}
+        <div>已满18岁，可以进入网吧</div>
+        {% elif user3.age == 18 %}
+        <div>需要他人陪同</div>
+        {% else %}
+        <div>未满18岁，不可以进入网吧</div>
+        {% endif %}
+    </div>
+    <div>
+        {% for item in mylist %}
+        <div>{{item}}</div>
+        {% endfor %}
+    </div>
+</body>
+</html>
